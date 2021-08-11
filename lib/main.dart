@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Widgets/double_arrow_buttons.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,7 +50,13 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [],
+        children: [
+          const DoubleArrowButtonLeft(onPressed: null),
+          DoubleArrowButtonRight(
+            onPressed: () => print("object"),
+            size: 80,
+          )
+        ],
       )),
     );
   }
