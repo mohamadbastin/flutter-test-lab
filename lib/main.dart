@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Widgets/double_arrow_buttons.dart';
+import 'Widgets/fauli_bottoms.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,15 +49,23 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const DoubleArrowButtonLeft(onPressed: null),
-          DoubleArrowButtonRight(
-            onPressed: () => print("object"),
-            size: 80,
-          )
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: const [
+          // Container(
+          //   height: 300,
+          //   width: 100,
+          //   color: Colors.red,
+          //   child: const Center(
+          //     child: Text("asfsdfsdf"),
+          //   ),
+          // ),
+          // FauliBottomDefault(),
+          FauliBottomDefaultEyesClosed(),
+          FauliBottomHandUp()
+          
         ],
       )),
+      // bottomNavigationBar: const FauliBasicBottom(),
     );
   }
 }
