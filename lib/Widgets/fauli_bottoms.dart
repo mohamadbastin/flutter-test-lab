@@ -2,16 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class FauliBottomDefault extends _FauliBottomBase {
+  /// The default fauli bottom.
+  /// It is possible to assign this widget to the bottom nav bar.
   const FauliBottomDefault({Key? key})
       : super(key: key, pic: const _FauliDefaultPic(), ratio: 3.36);
 }
 
 class FauliBottomDefaultEyesClosed extends _FauliBottomBase {
+  /// The default fauili bottom but faulis eyes are closed.
+  /// It is possible to assign this widget to the bottom nav bar.
   const FauliBottomDefaultEyesClosed({Key? key})
       : super(key: key, pic: const _FauliDefaultEyesClosedPic(), ratio: 3.36);
 }
 
 class FauliBottomHandUp extends _FauliBottomBase {
+  /// The fauli bottom where faulis hand is up.
+  /// It is possible to assign this widget to the bottom nav bar.
   const FauliBottomHandUp({Key? key})
       : super(key: key, pic: const _FauliHandUpPic(), ratio: 2.6);
 }
