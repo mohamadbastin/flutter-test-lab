@@ -50,11 +50,18 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
-        children: const [
-          Commonsheet(
-            height: 300,
-            child: Center(child: Text("asgfsgfd")),
-          )
+        children: [
+          // CBS(builder: builder, onClosing: onClosing)
+          // CommonsheetWithFauli(
+          //   height: 100,
+          //   child: Column(
+          //     children: const [
+          //       Text("asdf"),
+          //       Text("asdf"),
+          //       CBS()
+          //     ],
+          //   ),
+          // )
         ],
       )),
     );
