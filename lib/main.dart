@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_lab/widgets/common_bottom_sheet.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,8 +49,13 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [],
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: const [
+          Commonsheet(
+            height: 300,
+            child: Center(child: Text("asgfsgfd")),
+          )
+        ],
       )),
     );
   }
