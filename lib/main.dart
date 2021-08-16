@@ -57,9 +57,10 @@ class _MyHomePageState extends State<MyHomePage> {
           Center(
             child: GestureDetector(
               onTap: () => showCommonBottomSheet(
-                isDismissible: false,
+                // fauliHeader: true,
                   context: context,
                   builder: (buildContext) => Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                         children: const [
                           Text("alkjsdhfgkljhsgf"),
                           Text("alkjsdhfgkljhsgf"),

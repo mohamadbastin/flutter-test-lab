@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
 /// Shows a modal material design bottom sheet.
-/// 
+///
 /// Wrapped with the common bottom sheet properties.
-/// 
+///
 /// Background color and shape is set and immutable.
 /// 
+/// set [fauliHeader] to [true] if you wish to have a fauli header on top of the bottom sheet.
+///
 /// Write the builder with the content you want to implement in the bottom sheet.
-/// 
+///
 /// You should handle paddings in your builder.
 Future<T?> showCommonBottomSheet<T>({
   required BuildContext context,
   required WidgetBuilder builder,
-  // Color? backgroundColor,
+  bool? fauliHeader = false,
   double? elevation,
   // ShapeBorder? shape,
   Clip? clipBehavior,
@@ -29,7 +30,20 @@ Future<T?> showCommonBottomSheet<T>({
 }) {
   return showModalBottomSheet(
       context: context,
-      builder: builder,
+      builder: !fauliHeader!
+          ? builder
+          : (BuildContext buildContext) => Stack(
+                fit: StackFit.expand,
+                alignment: AlignmentDirectional.topCenter,
+                overflow: Overflow.visible,
+                children: [
+                  Padding(
+                      padding: const EdgeInsets.only(top: 40),
+                      child: Builder(builder: builder)),
+                  const Positioned(
+                      top: -240, child: Center(child: _FauliDefaultPic()))
+                ],
+              ),
       backgroundColor: const Color(0xFFFFF0C0),
       elevation: elevation,
       shape: const RoundedRectangleBorder(
