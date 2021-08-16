@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_lab/widgets/common_dialog.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,7 +50,26 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [],
+        children: [
+          // DialogContainer1(),
+          ElevatedButton(
+              onPressed: () => showCommonDialog(
+                  context: context,
+                  background: DialogContainerBackground.dialogContainerSquare,
+                  builder: (BuildContext buildContext) => Column(
+                        children: const [
+                          Text("asdfjkhasdf"),
+                          Text("asdfjkhasdf", style: TextStyle(color: Colors.red, fontWeight: FontWeight.normal),),
+                          Text("asdfjkhasdf"),
+                          Text("asdfjkhasdf"),
+                          Text("asdfjkhasdf"),
+                          Text("asdfjkhasdf"),
+                          Text("asdfjkhasdf"),
+                          Text("asdfjkhasdf"),
+                        ],
+                      )),
+              child: const Text("asdfjkhasdf"))
+        ],
       )),
     );
   }
