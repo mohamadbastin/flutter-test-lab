@@ -49,19 +49,35 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          // CBS(builder: builder, onClosing: onClosing)
-          // CommonsheetWithFauli(
-          //   height: 100,
-          //   child: Column(
-          //     children: const [
-          //       Text("asdf"),
-          //       Text("asdf"),
-          //       CBS()
-          //     ],
-          //   ),
-          // )
+          // CommonBottomSheet(child: ,height: ,)
+          // showBottomSheet(context: context, builder: builder)
+          // showDialog(context: context, builder: AFSADF(child:))
+          Center(
+            child: GestureDetector(
+              onTap: () => showCommonBottomSheet(
+                isDismissible: false,
+                  context: context,
+                  builder: (buildContext) => Column(
+                        children: const [
+                          Text("alkjsdhfgkljhsgf"),
+                          Text("alkjsdhfgkljhsgf"),
+                          Text("alkjsdhfgkljhsgf"),
+                          Text("alkjsdhfgkljhsgf"),
+                          Text("alkjsdhfgkljhsgf"),
+                          Text("alkjsdhfgkljhsgf"),
+                        ],
+                      )),
+              child: const SizedBox(
+                height: 130,
+                width: 150,
+                child: Center(
+                  child: Text("press"),
+                ),
+              ),
+            ),
+          )
         ],
       )),
     );
