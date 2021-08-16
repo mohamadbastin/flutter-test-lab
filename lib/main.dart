@@ -57,15 +57,30 @@ class _MyHomePageState extends State<MyHomePage> {
                   context: context,
                   background: DialogContainerBackground.dialogContainerSquare,
                   builder: (BuildContext buildContext) => Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: const [
                           Text("asdfjkhasdf"),
-                          Text("asdfjkhasdf", style: TextStyle(color: Colors.red, fontWeight: FontWeight.normal),),
+                          Text(
+                            "asdfjkhasdf",
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.normal),
+                          ),
+                          Text("asdfjkhasdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"),
                           Text("asdfjkhasdf"),
                           Text("asdfjkhasdf"),
                           Text("asdfjkhasdf"),
                           Text("asdfjkhasdf"),
                           Text("asdfjkhasdf"),
                           Text("asdfjkhasdf"),
+                          Text("asdfjkhasdf"),
+                          Text("asdfjkhasdf"),
+                          Text("asdfjkhasdf"),
+                          Text("asdfjkhasdf"),
+                          Text("asdfjkhasdf"),
+                          Text("asdfjkhasdf"),
+                          Text("asdfjkhasdf"),                          
+                          
                         ],
                       )),
               child: const Text("asdfjkhasdf"))

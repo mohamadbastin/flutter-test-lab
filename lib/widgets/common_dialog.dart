@@ -56,17 +56,30 @@ Future<T?> showCommonDialog<T>({
 }) {
   return showDialog(
       context: context,
-      builder: (BuildContext buildContext) => Stack(
-        
-            children: [
-              _backgroundHelper(background),
-              DefaultTextStyle(
-                style: const TextStyle(decoration: TextDecoration.none),
-                child: Builder(
-                  builder: builder,
-                ),
-              )
-            ],
+      builder: (BuildContext buildContext) => Center(
+            child: SizedBox(
+              // height: 600,
+              // width: 400,
+              child: Stack(
+                fit: StackFit.loose,
+                overflow: Overflow.clip,
+                alignment: AlignmentDirectional.topCenter,
+                children: [
+                  _backgroundHelper(background),
+                  DefaultTextStyle(
+                    style: const TextStyle(decoration: TextDecoration.none, color: Colors.black),
+                    child: Positioned.fill(
+                      child: Padding(
+                        padding: const EdgeInsets.all(15),
+                        child: Builder(
+                          builder: builder,
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
           ),
       barrierColor: barrierColor,
       barrierDismissible: barrierDismissible,
