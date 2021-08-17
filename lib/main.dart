@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_lab/widgets/common_dialog.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,42 +49,63 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+          child: Stack(
+        fit: StackFit.passthrough,
         children: [
-          // DialogContainer1(),
-          ElevatedButton(
-              onPressed: () => showCommonDialog(
-                  context: context,
-                  background: DialogContainerBackground.dialogContainerSquare,
-                  builder: (BuildContext buildContext) => Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
-                          Text("asdfjkhasdf"),
-                          Text(
-                            "asdfjkhasdf",
-                            style: TextStyle(
-                                color: Colors.red,
-                                fontWeight: FontWeight.normal),
-                          ),
-                          Text("asdfjkhasdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"),
-                          Text("asdfjkhasdf"),
-                          Text("asdfjkhasdf"),
-                          Text("asdfjkhasdf"),
-                          Text("asdfjkhasdf"),
-                          Text("asdfjkhasdf"),
-                          Text("asdfjkhasdf"),
-                          Text("asdfjkhasdf"),
-                          Text("asdfjkhasdf"),
-                          Text("asdfjkhasdf"),
-                          Text("asdfjkhasdf"),
-                          Text("asdfjkhasdf"),
-                          Text("asdfjkhasdf"),
-                          Text("asdfjkhasdf"),                          
-                          
-                        ],
-                      )),
-              child: const Text("asdfjkhasdf"))
+          Center(
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height - 50,
+              width: 5,
+              child: Container(
+                color: Colors.black,
+                child: const Center(
+                  child: Text(""),
+                ),
+              ),
+            ),
+          ),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // DialogContainer1(),
+                ElevatedButton(
+                    onPressed: () => showCommonDialog(
+                        context: context,
+                        background: DialogContainerBackground
+                            .dialogContainerVerticalSize4,
+                        header: DialogHeader.mountainSeed,
+                        builder: (BuildContext buildContext) => Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: const [
+                                Text("asdfjkhasdf"),
+                                Text(
+                                  "asdfjkhasdf",
+                                  style: TextStyle(
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.normal),
+                                ),
+                                Text(
+                                    "asdfjkhasdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"),
+                                Text("asdfjkhasdf"),
+                                Text("asdfjkhasdf"),
+                                Text("asdfjkhasdf"),
+                                // Text("asdfjkhasdf"),
+                                // Text("asdfjkhasdf"),
+                                // Text("asdfjkhasdf"),
+                                // Text("asdfjkhasdf"),
+                                // Text("asdfjkhasdf"),
+                                // Text("asdfjkhasdf"),
+                                // Text("asdfjkhasdf"),
+                                // Text("asdfjkhasdf"),
+                                // Text("asdfjkhasdf"),
+                                // Text("asdfjkhasdf"),
+                              ],
+                            )),
+                    child: const Text("asdfjkhasdf"))
+              ],
+            ),
+          ),
         ],
       )),
     );
