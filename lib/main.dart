@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'widgets/ship_garden/ship_garden_appbar.dart';
+import 'screens/ship_garden_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +26,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'TEST LAB'),
+      // home: const MyHomePage(title: 'TEST LAB'),
+      home: ShipGardenScreen(),
     );
   }
 }
@@ -43,13 +46,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.tealAccent[200],
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: ShipGardenAppBar(),
+      // AppBar(
+      //   title: Text(widget.title),
+      // ),
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [],
+        children: const [],
       )),
     );
   }
