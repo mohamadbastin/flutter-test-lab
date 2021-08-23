@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:test_lab/widgets/ship_garden/bottom_grid_view.dart';
 import 'package:test_lab/widgets/ship_garden/ship_garden_appbar.dart';
 import 'package:test_lab/widgets/ship_garden/ship_garden_top_board.dart';
+import 'package:test_lab/widgets/ship_garden/plant_grid_view.dart';
 
 class ShipGardenScreen extends StatefulWidget {
   const ShipGardenScreen({Key? key}) : super(key: key);
@@ -54,8 +56,7 @@ class _ShipGardenScreenState extends State<ShipGardenScreen> {
                   const Align(
                     alignment: Alignment.centerLeft,
                     child: Padding(
-                      padding:
-                          EdgeInsets.symmetric( horizontal: 20),
+                      padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
                         "SCHIFFSGARTEN",
                         style: TextStyle(
@@ -63,6 +64,26 @@ class _ShipGardenScreenState extends State<ShipGardenScreen> {
                         ),
                       ),
                     ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: PlantGridView(),
+                  ),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(
+                        "DEINE KURSZUSAMMENSTELLUNG",
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: BottomGridView(),
                   )
                 ],
               ),
