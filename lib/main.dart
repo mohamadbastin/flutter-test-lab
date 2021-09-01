@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_lab/widgets/common_bottom_sheet.dart';
 
@@ -48,39 +49,137 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          // CommonBottomSheet(child: ,height: ,)
-          // showBottomSheet(context: context, builder: builder)
-          // showDialog(context: context, builder: AFSADF(child:))
-          Center(
-            child: GestureDetector(
-              onTap: () => showCommonBottomSheet(
-                // fauliHeader: true,
-                  context: context,
-                  builder: (buildContext) => Column(
+          child: GestureDetector(
+        onTap: () => showCommonBottomSheet(
+            constraints: BoxConstraints.loose(Size(
+                MediaQuery.of(context).size.width,
+                MediaQuery.of(context).size.height * 0.75)),
+            fauliHeader: true,
+            context: context,
+            isScrollControlled: true,
+            builder: (buildContext) => Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                        children: const [
-                          Text("alkjsdhfgkljhsgf"),
-                          Text("alkjsdhfgkljhsgf"),
-                          Text("alkjsdhfgkljhsgf"),
-                          Text("alkjsdhfgkljhsgf"),
-                          Text("alkjsdhfgkljhsgf"),
-                          Text("alkjsdhfgkljhsgf"),
-                        ],
-                      )),
-              child: const SizedBox(
-                height: 130,
-                width: 150,
-                child: Center(
-                  child: Text("press"),
-                ),
-              ),
-            ),
-          )
-        ],
+                    children: [
+                      const Text(
+                        "Wähle dein Profilbild.",
+                        style: TextStyle(
+                            fontSize: 15, // TODO set font size to 40
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black), // TODO set font
+                      ),
+                      Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: const [
+                            ProfileCircleItem(),
+                            Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: ProfileCircleItem(),
+                            ),
+                            ProfileCircleItem(),
+                          ],
+                        ),
+                      ),
+                      Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: const [
+                            ProfileCircleItem(),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 16.0),
+                              child: ProfileCircleItem(),
+                            ),
+                            ProfileCircleItem(
+                              visible: false,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: const [
+                            ProfileCircleItem(),
+                            Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: ProfileCircleItem(),
+                            ),
+                            ProfileCircleItem(),
+                          ],
+                        ),
+                      ),
+                      // Text("data"),
+                      // Text("data"),
+                      // Text("data"),
+                      // Text("data"),
+                      // Text("data")
+                    ],
+                  ),
+                )),
+        child: Container(
+          color: Colors.red,
+          height: 130,
+          width: 120,
+          child: const Center(
+            child: Text("press"),
+          ),
+        ),
       )),
     );
   }
 }
+
+class ProfileCircleItem extends StatefulWidget { // TODO u have to wrap the items in some widget to implement selection
+  const ProfileCircleItem({Key? key, this.visible = true}) : super(key: key);
+
+  final bool visible;
+
+  @override
+  _ProfileCircleItemState createState() => _ProfileCircleItemState();
+}
+
+class _ProfileCircleItemState extends State<ProfileCircleItem> {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: null,
+      child: Opacity(
+        opacity: widget.visible ? 1 : 0.4,
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.25 + 6,
+          height: MediaQuery.of(context).size.width * 0.25 + 6,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.transparent,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: const Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(3.0),
+            child: Container(
+              decoration: const BoxDecoration(
+                  shape: BoxShape.circle, color: Colors.white),
+              child: const Center(
+                child: Text("item"),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
