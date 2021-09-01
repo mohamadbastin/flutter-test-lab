@@ -136,7 +136,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class ProfileCircleItem extends StatefulWidget { // TODO u have to wrap the items in some widget to implement selection
+class ProfileCircleItem extends StatefulWidget {
+  // TODO u have to wrap the items in some widget to implement selection
   const ProfileCircleItem({Key? key, this.visible = true}) : super(key: key);
 
   final bool visible;
@@ -182,4 +183,3 @@ class _ProfileCircleItemState extends State<ProfileCircleItem> {
     );
   }
 }
-
