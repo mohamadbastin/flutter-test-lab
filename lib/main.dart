@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_lab/widgets/common_dialog.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -74,33 +75,109 @@ class _MyHomePageState extends State<MyHomePage> {
                         context: context,
                         background: DialogContainerBackground
                             .dialogContainerVerticalSize4,
-                        header: DialogHeader.mountainSeed,
-                        builder: (BuildContext buildContext) => Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: const [
-                                Text("asdfjkhasdf"),
-                                Text(
-                                  "asdfjkhasdf",
-                                  style: TextStyle(
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.normal),
-                                ),
-                                Text(
-                                    "asdfjkhasdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"),
-                                Text("asdfjkhasdf"),
-                                Text("asdfjkhasdf"),
-                                Text("asdfjkhasdf"),
-                                // Text("asdfjkhasdf"),
-                                // Text("asdfjkhasdf"),
-                                // Text("asdfjkhasdf"),
-                                // Text("asdfjkhasdf"),
-                                // Text("asdfjkhasdf"),
-                                // Text("asdfjkhasdf"),
-                                // Text("asdfjkhasdf"),
-                                // Text("asdfjkhasdf"),
-                                // Text("asdfjkhasdf"),
-                                // Text("asdfjkhasdf"),
-                              ],
+                        header: DialogHeader.fauliDefault,
+                        builder: (BuildContext buildContext) => Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 30.0, left: 10, right: 10),
+                              child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      "Kummerkasten",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 10.0),
+                                      child: Text(
+                                          "Mache eine schnelle Übung um dich auf andere Gedanken zu bringen."),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Center(
+                                        child: Container(
+                                          color: Colors.orange,
+                                          height: 65,
+                                          width: 155,
+                                          child: const Center(
+                                            child: Text("Zum Kummerkasten"),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const Center(
+                                      child: Divider(
+                                        thickness: 1,
+                                        color: Color(0xFFC2AD8D),
+                                      ),
+                                    ),
+                                    const Text(
+                                      "Krisenchat",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 10.0),
+                                      child: Text(
+                                          "Das Team vom Krisenchat hilft dir kostenlos über WhatsApp weiter."),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0),
+                                      child: Center(
+                                        child: Container(
+                                          color: Colors.orange,
+                                          height: 65,
+                                          width: 155,
+                                          child: const Center(
+                                            child: Text("Zum Krisenchat"),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const Center(
+                                      child: Divider(
+                                        thickness: 1,
+                                        color: Color(0xFFC2AD8D),
+                                      ),
+                                    ),
+                                    const Text(
+                                      "Telefonhilfe",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 10.0),
+                                      child: Text(
+                                          "Erhalte kostenlose telefonische Beratung in schwierigen Situationen."),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8.0, bottom: 10),
+                                      child: Center(
+                                        child: Container(
+                                          color: Colors.orange,
+                                          height: 65,
+                                          width: 155,
+                                          child: const Center(
+                                            child: Text("Zur Telefonhilfe"),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    // const Center(
+                                    //   child: Divider(
+                                    //     thickness: 2,
+                                    //     color: Color(0xFFC2AD8D),
+                                    //   ),
+                                    // )
+                                  ]),
                             )),
                     child: const Text("asdfjkhasdf"))
               ],
