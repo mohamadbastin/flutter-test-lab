@@ -41,6 +41,41 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int controller = 0;
+  _do() {
+    showCommonBottomSheet(
+        constraints: BoxConstraints.loose(Size(
+            MediaQuery.of(context).size.width,
+            MediaQuery.of(context).size.height * 0.75)),
+        fauliHeader: true,
+        context: context,
+        isScrollControlled: true,
+        builder: (buildContext) => Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Wähle dein Profilbild.",
+                    style: TextStyle(
+                        fontSize: 15, // TODO set font size to 40
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black), // TODO set font
+                  ),
+                  ProfileItmes(controller: controller, invisibles: const [1, 7])
+
+                  // Text("data"),
+                  // Text("data"),
+                  // Text("data"),
+                  // Text("data"),
+                  // Text("data")
+                ],
+              ),
+            ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,79 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
           child: GestureDetector(
-        onTap: () => showCommonBottomSheet(
-            constraints: BoxConstraints.loose(Size(
-                MediaQuery.of(context).size.width,
-                MediaQuery.of(context).size.height * 0.75)),
-            fauliHeader: true,
-            context: context,
-            isScrollControlled: true,
-            builder: (buildContext) => Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "Wähle dein Profilbild.",
-                        style: TextStyle(
-                            fontSize: 15, // TODO set font size to 40
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black), // TODO set font
-                      ),
-                      Center(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: const [
-                            ProfileCircleItem(),
-                            Padding(
-                              padding: EdgeInsets.all(16.0),
-                              child: ProfileCircleItem(),
-                            ),
-                            ProfileCircleItem(),
-                          ],
-                        ),
-                      ),
-                      Center(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: const [
-                            ProfileCircleItem(),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 16.0),
-                              child: ProfileCircleItem(),
-                            ),
-                            ProfileCircleItem(
-                              visible: false,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Center(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: const [
-                            ProfileCircleItem(),
-                            Padding(
-                              padding: EdgeInsets.all(16.0),
-                              child: ProfileCircleItem(),
-                            ),
-                            ProfileCircleItem(),
-                          ],
-                        ),
-                      ),
-                      // Text("data"),
-                      // Text("data"),
-                      // Text("data"),
-                      // Text("data"),
-                      // Text("data")
-                    ],
-                  ),
-                )),
+        onTap: () => _do(),
         child: Container(
           color: Colors.red,
           height: 130,
@@ -136,17 +99,52 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
+// ignore: must_be_immutable
 class ProfileCircleItem extends StatefulWidget {
-  // TODO u have to wrap the items in some widget to implement selection
-  const ProfileCircleItem({Key? key, this.visible = true}) : super(key: key);
+  ProfileCircleItem(
+      {Key? key,
+      this.visible = true,
+      required this.index,
+      required this.controller})
+      : super(key: key);
 
   final bool visible;
+  int index;
+  // ignore: prefer_typing_uninitialized_variables
+  var controller;
 
   @override
   _ProfileCircleItemState createState() => _ProfileCircleItemState();
 }
 
 class _ProfileCircleItemState extends State<ProfileCircleItem> {
+  bool selected = false;
+  // Color circle_color = Colors.transparent;
+
+  bool _check() {
+    // print(widget.controller);
+    if (widget.controller == widget.index) {
+      // widget.controller = -1;
+      return true;
+    } else {
+      // widget.controller = widget.index;
+      return false;
+    }
+
+    // print(widget.controller);
+    // selected = !selected;
+    // if (widget.visible) {
+    //   if (selected && widget.controller == widget.index) {
+    //     setState(() {
+    //     });
+    //   } else {
+    //     setState(() {
+    //       circle_color = Colors.transparent;
+    //     });
+    //   }
+    // }
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -158,7 +156,11 @@ class _ProfileCircleItemState extends State<ProfileCircleItem> {
           height: MediaQuery.of(context).size.width * 0.25 + 6,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.transparent,
+            color: widget.visible
+                ? _check()
+                    ? Colors.orange
+                    : Colors.transparent
+                : Colors.transparent, // TODO set color instead of orange
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.5),
@@ -180,6 +182,177 @@ class _ProfileCircleItemState extends State<ProfileCircleItem> {
           ),
         ),
       ),
+    );
+  }
+}
+
+// ignore: must_be_immutable
+class ProfileItmes extends StatefulWidget {
+  /// `controller`: Pass and int typed variable for retrieving the selected item.
+  ///
+  /// `invisibles`: Pass the list of not selectable items 1 through 9;
+  ProfileItmes({Key? key, required this.controller, this.invisibles})
+      : super(key: key);
+
+  /// Pass and int typed variable for retrieving the selected item.
+  int controller;
+  final List<int>? invisibles;
+
+  @override
+  _ProfileItmesState createState() => _ProfileItmesState();
+}
+
+class _ProfileItmesState extends State<ProfileItmes> {
+  var index = -1;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              GestureDetector(
+                child: ProfileCircleItem(
+                  index: 1,
+                  controller: index,
+                  visible: widget.invisibles!.contains(1) ? false : true,
+                ),
+                onTap: () {
+                  setState(() {
+                    index = 1;
+                    widget.controller = 1;
+                  });
+                },
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: GestureDetector(
+                  child: ProfileCircleItem(
+                      index: 2,
+                      controller: index,
+                      visible: widget.invisibles!.contains(2) ? false : true),
+                  onTap: () {
+                    setState(() {
+                      index = 2;
+                      widget.controller = 2;
+                    });
+                  },
+                ),
+              ),
+              GestureDetector(
+                child: ProfileCircleItem(
+                    index: 3,
+                    controller: index,
+                    visible: widget.invisibles!.contains(3) ? false : true),
+                onTap: () {
+                  setState(() {
+                    index = 3;
+                    widget.controller = 3;
+                  });
+                },
+              ),
+            ],
+          ),
+        ),
+        Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              GestureDetector(
+                child: ProfileCircleItem(
+                    index: 4,
+                    controller: index,
+                    visible: widget.invisibles!.contains(4) ? false : true),
+                onTap: () {
+                  setState(() {
+                    index = 4;
+                    widget.controller = 4;
+                  });
+                },
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: GestureDetector(
+                  child: ProfileCircleItem(
+                      index: 5,
+                      controller: index,
+                      visible: widget.invisibles!.contains(5) ? false : true),
+                  onTap: () {
+                    setState(() {
+                      index = 5;
+                      widget.controller = 5;
+                    });
+                  },
+                ),
+              ),
+              GestureDetector(
+                child: ProfileCircleItem(
+                    index: 6,
+                    controller: index,
+                    visible: widget.invisibles!.contains(6) ? false : true),
+                onTap: () {
+                  setState(() {
+                    index = 6;
+                    widget.controller = 6;
+                  });
+                },
+              ),
+            ],
+          ),
+        ),
+        Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              GestureDetector(
+                child: ProfileCircleItem(
+                    index: 7,
+                    controller: index,
+                    visible: widget.invisibles!.contains(7) ? false : true),
+                onTap: () {
+                  setState(() {
+                    index = 7;
+                    widget.controller = 7;
+                  });
+                },
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: GestureDetector(
+                  child: ProfileCircleItem(
+                      index: 8,
+                      controller: index,
+                      visible: widget.invisibles!.contains(8) ? false : true),
+                  onTap: () {
+                    setState(() {
+                      index = 8;
+                      widget.controller = 8;
+                    });
+                  },
+                ),
+              ),
+              GestureDetector(
+                child: ProfileCircleItem(
+                    index: 9,
+                    controller: index,
+                    visible: widget.invisibles!.contains(9) ? false : true),
+                onTap: () {
+                  setState(() {
+                    index = 9;
+                    widget.controller = 9;
+                  });
+                },
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
