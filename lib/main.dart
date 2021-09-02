@@ -40,17 +40,44 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     return Scaffold(
-      backgroundColor: Colors.tealAccent[200],
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [],
-      )),
+        child: DataTable(
+          dividerThickness: 3,
+          columns: const [
+            DataColumn(label: Text("name")),
+            DataColumn(label: Text("age")),
+            DataColumn(label: Text("asdf")),
+          ],
+          rows: const [
+            DataRow(cells: [
+              DataCell(Text("asdf")),
+              DataCell(Text("data")),
+              DataCell(Text("asdffff"))
+            ]),
+            DataRow(cells: [
+              DataCell(Text("asdf")),
+              DataCell(Text("data")),
+              DataCell(Text("asdffff"))
+            ]),
+            DataRow(cells: [
+              DataCell(Text("asdf")),
+              DataCell(Text("data")),
+              DataCell(Text("asdffff"))
+            ]),
+            DataRow(cells: [
+              DataCell(Text("asdf")),
+              DataCell(Text("data")),
+              DataCell(Text("asdffff"))
+            ]),
+          ],
+        ),
+      ),
     );
   }
+}
+
+class MyDivider extends Divider {
+  const MyDivider({Key? key}) : super(key: key, color: Colors.red);
 }
